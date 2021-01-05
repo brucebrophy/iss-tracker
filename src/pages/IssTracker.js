@@ -1,15 +1,21 @@
 import { useState, useEffect } from "react";
 import Map from "../components/Maps/Map";
 import Telemetry from "../components/Telemetry";
+import IssStream from "../components/IssStream";
 
 export default function IssTracker() {
   const [map, setMap] = useState(null);
   const [path, setPath] = useState(null);
+  const [isViewingStream, setIsViewingStream] = useState(false);
   const [velocity, setVelocity] = useState(null);
   const [altitude, setAltitude] = useState(null);
   const [pathCoords, setPathCoords] = useState([]);
 
-  const getIssData = (path) => {
+  const toggleStream = () => {
+    setIsViewingStream(!isViewingStream);
+  };
+
+  const getIssData = () => {
     fetch("https://api.wheretheiss.at/v1/satellites/25544")
       .then((res) => res.json())
       .then((data) => {
@@ -53,13 +59,18 @@ export default function IssTracker() {
     const coord = pathCoords.slice(-1).pop();
     path.setPath(pathCoords);
     map.panTo(coord);
-    map.setZoom(5);
   }, [pathCoords]);
 
   return (
     <>
-      <Telemetry altitude={altitude} velocity={velocity} />
+      <Telemetry
+        altitude={altitude}
+        velocity={velocity}
+        toggleStream={toggleStream}
+        isViewingStream={isViewingStream}
+      />
       <Map mapCallback={(map) => setMap(map)} />
+      {isViewingStream && <IssStream />}
     </>
   );
 }
