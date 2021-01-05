@@ -1,5 +1,3 @@
-import Iframe from "react-iframe";
-
 export default function Stream() {
   return (
     <iframe
