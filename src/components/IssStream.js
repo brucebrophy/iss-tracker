@@ -4,7 +4,7 @@ export default function Stream() {
       title="ISS Video Feed"
       width="426"
       height="240"
-      src="https://ustream.tv/embed/17074538?autoplay=true"
+      src="https://ustream.tv/embed/17074538?autoplay=true&controls=false&forced-quality=high&showtitle=false"
       scrolling="no"
       allowFullScreen
       frameBorder="0"
