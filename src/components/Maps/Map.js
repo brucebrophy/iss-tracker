@@ -11,10 +11,10 @@ export default function Map({ mapCallback }) {
         onGoogleApiLoaded={({ map }) => mapCallback(map)}
         yesIWantToUseGoogleMapApiInternals
         options={{
-          minZoom: 3,
-          maxZoom: 6,
+          minZoom: 1,
+          maxZoom: 8,
           backgroundColor: "black",
-          zoomControl: false,
+          zoomControl: true,
           fullscreenControl: false,
           styles: MapStyles,
         }}
