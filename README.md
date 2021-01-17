@@ -1,4 +1,4 @@
-# ISS Tracking Dashboard
+# Raspberry Pi ISS Tracking Dashboard
 
 Dashboard for tracking and steaming video from the International Space Station
 
@@ -16,6 +16,6 @@ Run the following commands
 
 **Note:** You will need a Google Map API key to add to the .env.local
 
-## Running the Project
+## Running the Dashboard in Kiosk Mode
 
 Run `npm start`
