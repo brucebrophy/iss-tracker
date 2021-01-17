@@ -19,6 +19,7 @@ Run the following commands
 ## Running the Dashboard (Browser)
 
 `npm run start`
+
 The application will start a web server at [http://localhost:3000](http://localhost:3000)
 
 ## Running the Dashboard in Kiosk Mode (on Raspbery Pi)
@@ -28,17 +29,20 @@ On your Pi run the following command `sudo apt-get install xdotool unclutter sed
 From the project directory run the following commands
 
 `cp kiosk.sh /home/pi`
-Copies the the bash script needed to start the applicatio to `/home/pi`
 
----
+*Copies the the bash script needed to start the application to `/home/pi`*
+
+`sudo cp kiosk.service /lib/systemd/system`
+
+*Copies the the service file that will start the dashboard application once the Pi is powered on*
+
+-----
 
 Now that the service file and bash script is copied you can cd to `/home/pi` and enable the service using the following commands.
 
-`sudo cp kiosk.service /lib/systemd/system`
-Copies the the service file that will start the dashboard application once the Pi is powered on
-
 `sudo systemctl enable kiosk.service`
-Enable the service on your Raspberry Pi
+
+*Enables the service on your Raspberry Pi*
 
 At this point you can start the service by running `sudo systemctl start kiosk.service` or reboot and the service should start on it's own.
 
